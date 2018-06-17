@@ -5,3 +5,9 @@ flask
 jinja2
 pip
 simplejson
+json
+bokeh.plotting
+bokeh.embed
+requests
+numpy
+
