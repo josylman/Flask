@@ -46,12 +46,10 @@ def create_figure(current_feature_name):
 
 @app.route('/', methods=['GET', 'POST'])
 def indexplotter():
-
     # Determine selected feature
-    if request.method == 'GET':
+    current_feature_name = request.args.get("feature_name")
+    if current_feature_name == None:
         current_feature_name = 'adj_close'
-    else:
-        current_feature_name = request.args.get("feature_name")
 
     # Create the plot
     plot = create_figure(current_feature_name)
@@ -65,5 +63,5 @@ def indexplotter():
 # With debug=True, Flask server will auto-reload
 # when there are code changes
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5100))
+    port = int(os.environ.get("PORT", 5020))
     app.run(host='0.0.0.0', port=port)
