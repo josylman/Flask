@@ -5,6 +5,7 @@ import json
 from bokeh.plotting import figure
 from bokeh.embed import components
 import numpy as np
+import os
 
 app = Flask(__name__)
 # obtain the Data
@@ -62,4 +63,5 @@ def indexplotter():
 # With debug=True, Flask server will auto-reload
 # when there are code changes
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5014, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
