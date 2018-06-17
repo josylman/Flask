@@ -44,7 +44,7 @@ def create_figure(current_feature_name):
     return p
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def indexplotter():
     # Determine selected feature
     current_feature_name = request.args.get("feature_name")
@@ -63,5 +63,4 @@ def indexplotter():
 # With debug=True, Flask server will auto-reload
 # when there are code changes
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(port=port)
+    app.run(port=5004)
